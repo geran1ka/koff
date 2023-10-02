@@ -352,7 +352,7 @@
         </div>
       </section>
 
-      <section class="cart">
+      <section class="cart" hidden>
         <div class="container cart__container">
           <h2 class="cart__title">Корзина</h2>
           <ul class="cart__products">
@@ -418,7 +418,7 @@
               <textarea class="form-order__textarea"  name="comments" placeholder="Комментарий к заказу"></textarea>
             </fieldset>
             <fieldset class="form-order__fieldset form-order__fieldset_radio">
-              <legend class="form-order__legend"></legend>
+              <legend class="form-order__legend">Доставка</legend>
               <label for="" class="form-order__label">
                 <input type="radio" class="radio__input" name="deliveryType" value="delivery">Доставка
               </label>
@@ -427,10 +427,69 @@
                 <input type="radio" class="radio__input" name="deliveryType" value="pickup">Самовывоз
               </label>
             </fieldset>
-            <fieldset class="form-order__fieldset form-order__fieldset_radio"></fieldset>
-          </form>
+            <fieldset class="form-order__fieldset form-order__fieldset_radio">
+              <legend class="form-order__legend">Оплата</legend>
+              <label for="" class="form-order__label">
+                <input type="radio" class="radio__input" name="paymentType" value="card">Картой при получении
+              </label>
+
+              <label for="" class="form-order__label">
+                <input type="radio" class="radio__input" name="paymentType" value="cash">Наличными при получении
+              </label>
+            </fieldset>
+          </form> 
         </div>
         
+      </section>
+
+      <section class="order">
+        <div class="container order__container">
+             
+          <div class="order__info">
+            <p class="order__title">Заказ успешно размещен</p>
+            <p class="order__price">20&nbsp;000&nbsp;₽</p>
+            <p class="order__number">№43435</p>
+
+            <div class="order__characteristics">
+              <h3 class="order__characteristics-title">Данные доставки</h3>
+
+              <table class="order__characteristics-table table">
+                <tr class="tabble__row">
+                  <td class="table__field">Получатель</td>
+                  <td class="table__value">Иванов Петр Александрович</td>
+                </tr>
+
+                <tr class="tabble__row">
+                  <td class="table__field">Телефон</td>
+                  <td class="table__value">+7 (737) 346 23 00</td>
+                </tr>
+
+                <tr class="tabble__row">
+                  <td class="table__field">E-mail</td>
+                  <td class="table__value">Ivanov84@gmail.com</td>
+                </tr>
+
+                <tr class="tabble__row">
+                  <td class="table__field">Адрес доставки</td>
+                  <td class="table__value">Москва, ул. Ленина, 21, кв. 33</td>
+                </tr>
+
+                <tr class="tabble__row">
+                  <td class="table__field">Способ оплаты</td>
+                  <td class="table__value">Картой при получении</td>
+                </tr>
+
+                <tr class="tabble__row">
+                  <td class="table__field">Способ получения</td>
+                  <td class="table__value">Доставка</td>
+                </tr>
+              </table>
+
+                <button class="product__btn" type="button">На главную</button>
+
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>
