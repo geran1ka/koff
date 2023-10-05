@@ -1,21 +1,38 @@
 .order {
 
   &__container {
+    max-width: 408px;
+    margin: 0 auto;
   }
   
   &__info {
+
+    @media (min-width: 820px) {
+    }
+
+    @media (min-width: 1120px) {
+    }
   }
   
   &__title {
+    margin-bottom: 8px;
+    font-size: 16px;
   }
   
   &__price {
+    margin-bottom: 8px;
+    font-size: 16px;
   }
-  
+   
   &__number {
+    margin-bottom: 20px;
+    font-size: 12px;
   }
   
   &__characteristics {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
   
   &__characteristics-title {
