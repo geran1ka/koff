@@ -11,7 +11,7 @@
     <script type="module" src="/main.js"></script>
   </head>
   <body>
-    <!-- <header class="header">
+    <header class="header">
       <div class="container header__container">
         <a href="/" class="header__link-logo">
           <img class="header__logo" src="/img/logo.svg" alt="Логотип мебельного маркет Koff">
@@ -52,7 +52,7 @@
       </div>
     </header>
     <main>
-      <div class="catalog" >
+      <div class="catalog" hidden>
         <div class="container catalog__container">
           <ul class="catalog__list">
             <li class="catalog__item">
@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <div class="breadcrumb" >
+      <div class="breadcrumb" hidden>
         <div class="container">
           <ul class="breadcrumb__list">
             <li class="breadcrumb__item">
@@ -108,7 +108,7 @@
         </div>
       </div>
 
-      <section class="goods" >
+      <section class="goods" hidden>
         <div class="container">
           <h2 class="goods__title">Избранное</h2>
 
@@ -247,7 +247,7 @@
         </div>
       </section>
 
-      <section class="product" >
+      <section class="product" hidden>
         <div class="container product__container">
           <h2 class="product__title">Кресло с подлокотниками</h2>
           <div class="product__picture">
@@ -384,7 +384,7 @@
         </div>
       </section>
 
-      <section class="cart" >
+      <section class="cart" hidden>
         <div class="container cart__container">
           <h2 class="cart__title">Корзина</h2>
           <ul class="cart__products">
@@ -478,47 +478,52 @@
         <div class="container order__container">
              
           <div class="order__info">
-            <p class="order__title">Заказ успешно размещен</p>
-            <p class="order__price">20&nbsp;000&nbsp;₽</p>
-            <p class="order__number">№43435</p>
+            <div class="order__top">
+              <p class="order__title">Заказ успешно размещен</p>
+              <p class="order__price">20&nbsp;000&nbsp;₽</p>
+              <p class="order__number">№43435</p>
+            </div>
 
             <div class="order__characteristics">
               <h3 class="order__characteristics-title">Данные доставки</h3>
 
-              <table class="order__characteristics-table table">
-                <tr class="table__row">
-                  <td class="table__field">Получатель</td>
-                  <td class="table__value">Иванов Петр Александрович</td>
-                </tr>
-
-                <tr class="table__row">
-                  <td class="table__field">Телефон</td>
-                  <td class="table__value">+7 (737) 346 23 00</td>
-                </tr>
-
-                <tr class="table__row">
-                  <td class="table__field">E-mail</td>
-                  <td class="table__value">Ivanov84@gmail.com</td>
-                </tr>
-
-                <tr class="table__row">
-                  <td class="table__field">Адрес доставки</td>
-                  <td class="table__value">Москва, ул. Ленина, 21, кв. 33</td>
-                </tr>
-
-                <tr class="table__row">
-                  <td class="table__field">Способ оплаты</td>
-                  <td class="table__value">Картой при получении</td>
-                </tr>
-
-                <tr class="table__row">
-                  <td class="table__field">Способ получения</td>
-                  <td class="table__value">Доставка</td>
-                </tr>
-              </table>
-
-                <button class="product__btn" type="button">На главную</button>
-
+              <div class="order__characteristics-wrapper">
+                <table class="order__characteristics-table table">
+                  <tr class="table__row">
+                    <td class="table__field">Получатель</td>
+                    <td class="table__value">Иванов Петр Александрович</td>
+                  </tr>
+  
+                  <tr class="table__row">
+                    <td class="table__field">Телефон</td>
+                    <td class="table__value">+7 (737) 346 23 00</td>
+                  </tr>
+  
+                  <tr class="table__row">
+                    <td class="table__field">E-mail</td>
+                    <td class="table__value">Ivanov84@gmail.com</td>
+                  </tr>
+  
+                  <tr class="table__row">
+                    <td class="table__field">Адрес доставки</td>
+                    <td class="table__value">Москва, ул. Ленина, 21, кв. 33</td>
+                  </tr>
+  
+                  <tr class="table__row">
+                    <td class="table__field">Способ оплаты</td>
+                    <td class="table__value">Картой при получении</td>
+                  </tr>
+  
+                  <tr class="table__row">
+                    <td class="table__field">Способ получения</td>
+                    <td class="table__value">Доставка</td>
+                  </tr>
+                </table>
+  
+                  <button class="product__btn" type="button">На главную</button>
+  
+  
+              </div>
             </div>
           </div>
         </div>
@@ -577,6 +582,6 @@
 
         <p class="footer__copyright">© Koff, 2023</p>
       </div>
-    </footer> -->
+    </footer>
   </body>
 </html>

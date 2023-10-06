@@ -1,32 +1,85 @@
 .order {
+  padding-top: 32px;
+  padding-bottom: 80px;
+  
+  @media (min-width: 580px) {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
 
   &__container {
-    max-width: 408px;
-    margin: 0 auto;
-  }
-  
-  &__info {
+    border-radius: 16px;
+    border: 1px solid #EEEFF2;
+
+    @media (min-width: 580px) {
+      max-width: 710px;
+    }
 
     @media (min-width: 820px) {
+      max-width: 726px;
     }
 
     @media (min-width: 1120px) {
+      max-width: 832px;
+    }
+  }
+  
+  &__info {
+    margin: 0 auto;
+    padding: 24px 0;
+
+    @media (min-width: 580px) {
+      padding-top: 60px 151px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    align-items: center;
+    row-gap: 8px;
+    grid-template-areas: 
+    'title'
+    'price'
+    'number';
+    margin-bottom: 20px;
+
+    @media (min-width: 580px) {
+      justify-content: space-between;
+      gap: 12px;
+      grid-template-areas: 
+      'title price'
+      'number .';
+      margin-bottom: 24px;
     }
   }
   
   &__title {
-    margin-bottom: 8px;
     font-size: 16px;
+    font-weight: 400;
+    color: #1C1C1C;
+
+    @media (min-width: 580px) {
+      font-size: 20px;
+    }
   }
   
   &__price {
-    margin-bottom: 8px;
     font-size: 16px;
+    font-weight: 400;
+    color: #1C1C1C;
+
+    @media (min-width: 580px) {
+      font-size: 20px;
+    }
   }
-   
+
   &__number {
-    margin-bottom: 20px;
+    padding: 4px 8px;
     font-size: 12px;
+    font-weight: 400;
+    border-radius: 32px;
+    background: #EEEFF2;
+    justify-self: start;
   }
   
   &__characteristics {
@@ -34,28 +87,11 @@
     flex-direction: column;
     gap: 12px;
   }
-  
-  &__characteristics-title {
-  }
-  
-  &__characteristics-table {
-  }
-  }
 
-  .table {
-  
-  &__field {
-  }
-  
-  &__value {
-  }
-  
-  &__row {
-  }
-}
-.product {
-  
-  &__btn {
+  &__characteristics-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }
   
