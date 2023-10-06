@@ -2,6 +2,8 @@ import 'normalize.css';
 import './style.scss';
 import Navigo from 'navigo';
 import { Header } from './modules/Header/Header,';
+import { Main } from './modules/Main/main';
+import { Footer } from './modules/Footer/footer';
 
 const productSlider = () => {
   Promise.all([
@@ -30,12 +32,13 @@ const productSlider = () => {
 }
 
 const init = () => {
+  new Header().mount()
+  new Main().mount()
+  new Footer().mount()
+
   productSlider();
 
-  const header = new Header().mount()
-  console.log('header: ', header);
 
-  console.log('new Header(): ', new Header());
   
 
   const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
