@@ -5,6 +5,7 @@ import { Header } from './modules/Header/Header,';
 import { Main } from './modules/Main/main';
 import { Footer } from './modules/Footer/footer';
 import { Order } from './modules/Order/Order';
+import { ProductList } from './modules/ProductList/ProductList';
 
 const productSlider = () => {
   Promise.all([
@@ -46,13 +47,26 @@ const init = () => {
 
   router
   .on('/', () => {
-    console.log('Главная');
+    new ProductList().mount(new Main().element, [1, 2, 3, 4])
+  }, {
+    leave(done,match) {
+      done()
+    },
+    already(match) {}
   })
   .on('/category', () => {
-    console.log('Категория');
+    new ProductList().mount(new Main().element, [1, 2, 3, 4, 5, 6], 'Категория')
+  }, {
+    leave(done,match) {
+      done()
+    }
   })
   .on('/favorite', () => {
-    console.log('избранное');
+    new ProductList().mount(new Main().element, [1, 2, 3], 'Избранное')
+  }, {
+    leave(done,match) {
+      done()
+    }
   })
   .on('/search', () => {
     console.log('поиск');
@@ -68,7 +82,16 @@ const init = () => {
     console.log('козина');
   })
   .notFound(() => {
-    document.body.innerHTML = `<h2>Страница не найдена</h2>`
+    new Main().element.innerHTML = `
+      <h2>Страница не найдена</h2>
+      <p>Через 5 секунд вы будете перенаправлены 
+        <a href="/" >на главную страницу</a>
+      </p>
+    `;
+
+    setTimeout(() => {
+      router.navigate('/');
+    }, 5000)
   })
 
   router.resolve();
