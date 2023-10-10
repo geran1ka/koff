@@ -23,7 +23,6 @@ export class Catalog {
 
     this.renderListElem(data);
     parent.prepend(this.element);
-    document.body.append(this.element);
     this.isMounted = true;
   }
 

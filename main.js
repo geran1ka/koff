@@ -102,7 +102,7 @@ const init = () => {
   .on('/cart', () => {
     console.log('козина');
   })
-  .notFound(() => {
+  .notFound( () => {
     new Main().element.innerHTML = `
       <h2>Страница не найдена</h2>
       <p>Через 5 секунд вы будете перенаправлены 
@@ -112,6 +112,8 @@ const init = () => {
 
     setTimeout(() => {
       router.navigate('/');
+      new Main().element.textContent = '';
+
     }, 5000)
   })
 
