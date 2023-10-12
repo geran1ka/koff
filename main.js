@@ -8,6 +8,7 @@ import { Order } from './modules/Order/Order';
 import { ProductList } from './modules/ProductList/ProductList';
 import { ApiService } from './services/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
+import { FavoriteService } from './services/StorageService';
 
 const productSlider = () => {
   Promise.all([
@@ -51,25 +52,23 @@ const init = () => {
 
   productSlider();
 
-
-  
-
-
   router
   .on('/', async () => {
-    const product = await api.getProducts();
-    new ProductList().mount(new Main().element, product);
+    const products = await api.getProducts();
+    new ProductList().mount(new Main().element, products);
     router.updatePageLinks();
   }, {
     leave(done,match) {
       new ProductList().unmount();
       done();
     },
-    already(match) {}
+    already(match) {
+      match.route.handler(match);
+    }
   })
   .on('/category', async ({params: {slug}}) => {
-    const product = await api.getProducts();
-    new ProductList().mount(new Main().element, product, slug);
+    const {data: products} = await api.getProducts({category: slug});
+    new ProductList().mount(new Main().element, products, slug);
     router.updatePageLinks();
 
   }, {
@@ -79,14 +78,22 @@ const init = () => {
     }
   })
   .on('/favorite', async () => {
-    const product = await api.getProducts();
-    new ProductList().mount(new Main().element, product, 'Избранное');
+    const favorite = new FavoriteService().get();
+    const {data: product} = await api.getProducts({list: favotite.join(',')});
+    new ProductList().mount(
+      new Main().element,
+      product, 
+      'Избранное', 'Вы ничего не добавили в избранное, пожалуйста добавьте что-нибудь'
+    );
     router.updatePageLinks();
 
   }, {
     leave(done,match) {
       new ProductList().unmount();
       done();
+    },
+    already(match) {
+      match.route.handler(match);
     }
   })
   .on('/search', () => {
