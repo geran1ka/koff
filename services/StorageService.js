@@ -40,7 +40,7 @@ export class FavoriteService extends StorageService {
     const data = super.get();
     if (data) {
       const favorite = JSON.parse(data);
-      if (Array.isArray(this.favorite)) {
+      if (Array.isArray(favorite)) {
         return favorite;
       }
     }

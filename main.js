@@ -9,7 +9,7 @@ import { ProductList } from './modules/ProductList/ProductList';
 import { ApiService } from './services/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
 import { FavoriteService } from './services/StorageService';
-import { Pagination } from 'swiper/modules';
+import { Pagination } from './modules/features/Pagination/Pagination';
 
 const productSlider = () => {
   Promise.all([
@@ -84,7 +84,7 @@ const init = () => {
   })
   .on('/favorite', async () => {
     const favorite = new FavoriteService().get();
-    const {data: product} = await api.getProducts({list: favotite.join(',')});
+    const {data: product} = await api.getProducts({list: favorite.join(',')});
     new ProductList().mount(
       new Main().element,
       product, 

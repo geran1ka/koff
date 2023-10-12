@@ -10,10 +10,10 @@ export class LikeButton {
   create(id) {
     const button = document.createElement('button');
     button.classList.add(this.className);
-    button.classList.add(`${this.className}_active`)
+ 
 
     if(this.favoriteService.check(id)) {
-      button.
+      button.classList.add(`${this.className}_active`)
     }
 
     button.addEventListener('click', () => {

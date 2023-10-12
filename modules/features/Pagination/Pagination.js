@@ -12,10 +12,10 @@ export class Pagination {
 
   update({currentPage, totalPages, totalProducts, limit}) {
     const width = currentPage * limit;
-    this.paginationBar.style.setProperty('--width', `calc(${width < totalProducts ? width : totalProducts} / ${totalProdducts} * 100%)`);
+    this.paginationBar.style.setProperty('--width', `calc(${width < totalProducts ? width : totalProducts} / ${totalProducts} * 100%)`);
 
     this.paginationCurrent.textContent = width < totalProducts ? width : width - limit + (totalProducts % limit);
-    this.paginationTotal.textContent = totalPages;
+    this.paginationTotal.textContent = totalProducts;
 
     const urlLeft = new URL(window.location.href);
     if (currentPage !== 1) {
@@ -56,7 +56,7 @@ export class Pagination {
 
     this.paginationRight = document.createElement('a');
     this.paginationRight.classList.add('pagination__right');
-    this.paginationLeft.innerHTML = `
+    this.paginationRight.innerHTML = `
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.136 8.0001L7.47472 2.1821C7.4281 2.13522 7.39126 2.07955 7.3663 2.01833C7.34134 1.95711 7.32878 1.89155 7.32932 1.82544C7.32987 1.75933 7.34353 1.69398 7.3695 1.63318C7.39547 1.57239 7.43324 1.51734 7.48062 1.47124C7.528 1.42513 7.58406 1.38888 7.64555 1.36458C7.70703 1.34028 7.77273 1.32842 7.83883 1.32968C7.90493 1.33094 7.97012 1.34529 8.03064 1.37191C8.09115 1.39854 8.14579 1.43689 8.19138 1.48477L14.1914 7.65143C14.2822 7.74478 14.333 7.86987 14.333 8.0001C14.333 8.13033 14.2822 8.25542 14.1914 8.34877L8.19138 14.5154C8.14579 14.5633 8.09115 14.6017 8.03064 14.6283C7.97012 14.6549 7.90493 14.6693 7.83883 14.6705C7.77273 14.6718 7.70703 14.6599 7.64555 14.6356C7.58406 14.6113 7.528 14.5751 7.48062 14.529C7.43324 14.4829 7.39547 14.4278 7.3695 14.367C7.34353 14.3062 7.32987 14.2409 7.32932 14.1748C7.32878 14.1087 7.34134 14.0431 7.3663 13.9819C7.39126 13.9207 7.4281 13.865 7.47472 13.8181L13.136 8.0001Z" fill="#1C1C1C"/>
       </svg> 
